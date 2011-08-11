@@ -1,0 +1,55 @@
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  errors:
+    messages:
+      expired: "ha vencido, solicite uno nuevo"
+      not_found: "no hallado"
+      already_confirmed: "ya está confirmado, trate de ingresar ahora"
+      not_locked: "no estaba bloqueada"
+      not_saved:
+        one: "1 error impidió que %{resource} fuera guardado:"
+        other: "%{count} errores impidieron que %{resource} fueran guardados:"
+
+  devise:
+    failure:
+      already_authenticated: 'Ya ha ingresado.'
+      unauthenticated: 'Debe ingresar o registrar antes de continuar.'
+      unconfirmed: 'Debe confirmar su cuenta antes de continuar.'
+      locked: 'Su cuenta está bloqueada.'
+      invalid: 'Dirección de correo o contraseña incorrecta.'
+      invalid_token: 'Número de autenticación incorrecto.'
+      timeout: 'Su sesión ha vencido, ingrese otra vez para continuar.'
+      inactive: 'Su cuenta no está activa aún.'
+      not_approved: 'Su cuenta no ha sido aprovada por el administrador aún.'
+    sessions:
+      signed_in: 'Ingreso exitoso.'
+      signed_out: 'Salida exitosa.'
+    passwords:
+      send_instructions: 'En pocos minutos recibirá un correo electrónico indicandole como reiniciar su contraseña.'
+      updated: 'Su contraseña ha sido cambiada con éxito. Usted ha sido ingresado automáticamente.'
+      send_paranoid_instructions: "Si su correo electrónico ya existe en nuestra base de datos, usted recibiirá un enlace para la recuperaci´n de la contraseña via correo electrónico."
+    confirmations:
+      send_instructions: 'En unos minutos usted recibirá un correo electrónico con instrucciones sobre como confirmar su cuenta.'
+      send_paranoid_instructions: 'Si su correo electrónico ya existe en nuestra base de datos, usted recibirá un correo electrónico con instrucciones de como confirmar su cuenta..'
+      confirmed: 'Su cuenta ha sido confirmada con éxito.'
+    registrations:
+      signed_up: '¡Bienvenido! Ha ingresado con éxito.'
+      inactive_signed_up: 'Se ha registrado con éxito. Sin embargo, no se pudo ingresar automáticamente: %{reason}.'
+      updated: 'Su cuenta se ha actualizado correctamente.'
+      destroyed: '¡Adios! Su cuenta ha sido cancelada correctamente. Esperamos verle de vuelta pronto.'
+    unlocks:
+      send_instructions: 'En unos minostus usted recibirá un correo electrónico con instrucciones para desbloquear su cuenta.'
+      unlocked: 'Su cuenta ha sido desbloqueada con éxito. Usted ha sido ingresado automáticamente.'
+      send_paranoid_instructions: 'Si su cuenta existe, usted reibirá un correo electrónico con instrucciones sobre como desbloquearla.'
+    omniauth_callbacks:
+      success: 'Autorizado exitosamente desde la cuenta %{kind} .'
+      failure: 'No se pudo autorizar desde la cuenta %{kind} debido a "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones para la confirmación'
+      reset_password_instructions:
+        subject: 'Instrucciones para el reinicio de la contraseña'
+      unlock_instructions:
+        subject: 'Instrucciones para desbloqueo'
+      

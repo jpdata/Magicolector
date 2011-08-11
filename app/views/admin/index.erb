@@ -1,0 +1,22 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<table width="600p">
+
+<%
+@unapproveds.each do |u|
+%>
+  <tr>
+    <td width="75%">
+      <%=u.email %>
+    </td>
+    <td width="25%">
+      <%=link_to "Aprobar","/admin/aprobar/#{u.id}" %>
+    </td>
+  </tr>
+<%
+end
+%>
+</table>
+<%= "index" %>

@@ -1,0 +1,28 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<%
+if @resultado.length > 0 then
+%>
+
+<table width="700">
+  <% 
+  
+  @resultado.each do |r|  %>
+  <tr>
+    <td width="50%"><%=link_to r[1],"http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=#{r[0]}"%></td>
+    <td width="50%"><%=image_tag "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{r[0]}&type=card" %></td>
+  </tr>
+  <%
+    
+  end
+%>
+</table>
+<% else  %>
+<%= form_tag "/cartas/buscar" do %>
+  <%=label_tag :buscar %>
+  <%= text_field_tag :buscar %>
+  <%= submit_tag "go" %>
+<% end %>
+<%end%>
