@@ -1,0 +1,22 @@
+<p id="notice"></p>
+
+<p>
+  <b><%=t :name %>:</b>
+  <%= @coleccionista.nombre%>
+  </br>
+  <b><%=t :users %>:</b>
+  <table>
+    <thead>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>email</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    </thead>
+  <%=render @coleccionista.users %>
+  </table>
+</p>
+<%= link_to t(:edit), edit_coleccionista_path(@coleccionista) %> | 
+<%= link_to t(:users),"/coleccionistas/usuarios/#{@coleccionista.id}" %> | 
+<%= link_to t(:back) , coleccionistas_path %>

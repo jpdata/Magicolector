@@ -1,0 +1,7 @@
+<tr>
+  <td><%= coleccion.nombre %></td>
+  <td><%= coleccion.coleccionista.nombre %></td>
+  <td><%= link_to t('Show'), coleccion %></td>
+  <td><%= link_to t('Edit'), edit_coleccion_path(coleccion) %></td>
+  <td><%= link_to t('Destroy'), coleccion, :confirm => "#{t('Are you sure?')}", :method => :delete %></td>
+</tr>

@@ -1,0 +1,25 @@
+<%= form_for(@coleccion) do |f| %>
+  <% if @coleccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coleccion.errors.count, "error") %> prohibited this coleccionista from being saved:</h2>
+
+      <ul>
+      <% @coleccion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :coleccionista %><br />
+    <%= f.select :coleccionista_id, Coleccionista.find(:all,:include=>:users, :conditions=>["coleccionistas_users.user_id = ?", current_user.id]).collect {|p| [ "#{p.nombre}", p.id ] } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

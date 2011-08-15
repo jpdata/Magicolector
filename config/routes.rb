@@ -1,4 +1,11 @@
 Magicolector::Application.routes.draw do
+  
+  match "/coleccionistas/usuarios/:id" => "coleccionistas#usuarios"
+  match "/coleccionistas/set/:id" => "coleccionistas#set"
+  match "/coleccionistas/agregar" => "coleccionistas#agregar"
+  match "/coleccionistas/:id/quitar/:uid" => "coleccionistas#quitar"
+  resources :coleccionistas
+
   devise_for :user
   
   resources :inicio
@@ -9,6 +16,7 @@ Magicolector::Application.routes.draw do
   match "cartas/buscar" => "cartas#buscar"
   resources :cartas
   
+  match "/colecciones/set/:id" => "colecciones#set"
   resources :colecciones
   
   #get "colections/index"
@@ -16,6 +24,8 @@ Magicolector::Application.routes.draw do
   
   root :to=>"inicio#index"
   
+  # para que se redirija al inicio luego del sign_in
+  match '/user' => "inicio#index", :as => :user_root
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

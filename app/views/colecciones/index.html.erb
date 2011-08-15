@@ -1,0 +1,26 @@
+<h1><%=t "Listing colections" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%=t :name %></th>
+      <th><%=t :coleccionista %></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody id="colecciones">
+<%= render @colecciones %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Colection', new_coleccion_path %>
+
+<br><br>
+
+<div id="paginator">
+  <%= paginate @colecciones, :remote => true %>
+</div>

@@ -5,6 +5,31 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+<script type="text/javascript"> 
+$(document).ready(function(){
+ 
+	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
+	
+	$("ul.topnav li span").click(function() { //When trigger is clicked...
+		
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+ 
+		$(this).parent().hover(function() {
+		}, function(){	
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+ 
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() { 
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+ 
+});
+</script> 
+
 </head>
 <body>
 <div id="user_nav">
@@ -14,14 +39,28 @@
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
   <% end %>
+    </br>
 </div>
-  
+  <!-- ejemplo del menu -->
+  <%
+  items_menu=[
+    ["Inicio","/",[]],
+    ["Coleccionistas","/coleccionistas",[]],
+    ["Colecciones","/colecciones",[]]]
+  session["items_menu"]=items_menu if session["items_menu"].nil?    
+%>
+  <div id="menu">
+<%=raw menu(session["items_menu"]) -%>
+  </div>
+  </br></br>
+  <div>
     <section id="flash">
         <% flash.each do |key, value| %>
             <div class="flash <%= key %>"><%= value %></div>
         <% end %>
     </section> 
-  
+  </br>
+  </div>
 <%= yield %>
 
 </body>

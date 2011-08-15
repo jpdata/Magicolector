@@ -10,6 +10,7 @@ gem 'mongrel'
 gem 'devise'
 gem 'rails-i18n'
 gem "jquery-rails"
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'

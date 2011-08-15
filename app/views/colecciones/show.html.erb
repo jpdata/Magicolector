@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b><%=t :name %>:</b>
+  <%= @coleccion.nombre %></br>
+  <b><%=t :coleccionista %>:</b>
+  <%= @coleccion.coleccionista.nombre %>
+  </br>
+</p>
+
+<%= link_to t ('Edit'), edit_coleccion_path(@coleccion) %> |
+<%= link_to t ('Back'), colecciones_path %>

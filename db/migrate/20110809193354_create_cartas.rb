@@ -3,7 +3,8 @@ class CreateCartas < ActiveRecord::Migration
     create_table :cartas do |t|
       t.integer :wocid
       t.integer :cantidad
-
+      t.references :coleccion
+      
       t.timestamps
     end
   end

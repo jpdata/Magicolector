@@ -2,7 +2,8 @@ class CreateColecciones < ActiveRecord::Migration
   def self.up
     create_table :colecciones do |t|
       t.string :nombre
-
+      t.references :coleccionista
+      
       t.timestamps
     end
   end

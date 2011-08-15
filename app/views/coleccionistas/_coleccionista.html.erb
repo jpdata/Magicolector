@@ -1,0 +1,7 @@
+<tr>
+  <td><%= coleccionista.nombre %></td>
+  <td><%= link_to t('Show'), coleccionista %></td>
+  <td><%= link_to t('Edit'), edit_coleccionista_path(coleccionista) %></td>
+  <td><%= link_to t('Destroy'), coleccionista, :confirm => 'Are you sure?', :method => :delete %></td>
+  <td><%=link_to t('Users'),"/coleccionistas/usuarios/#{coleccionista.id}" %></td>
+</tr>

@@ -1,0 +1,38 @@
+<p>
+  <b><%=t 'Name' %>:</b>
+  <%= @coleccionista.nombre%>
+  </br>
+  <b><%=t 'Users' %>:</b>
+<table>    
+  <thead>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>email</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </thead>
+  <%  @coleccionista.users.each do |u|%>
+  <tr>
+    <td><%= u.nombre %></td>
+    <td><%= u.apellido %></td>
+    <td><%= u.email %></td>
+    <td>&nbsp;</td>
+    <td><%=link_to "Quitar","/coleccionistas/#{@coleccionista.id}/quitar/#{u.id}" %></td>
+    <td>&nbsp;</td>
+   
+  </tr>
+  <% end %>
+  <tr>
+    <td span="6">
+      <%=form_for @coleccionista, :url=>{:action=>"agregar"}  do |f| %>
+      <%=f.select :tuid, @coleccionista.users.nil? || @coleccionista.users.length == 0  ? User.order(:nombre,:apellido).all.collect {|p| [ "#{p.nombre} #{p.apellido}", p.id ] } : User.order(:nombre,:apellido).without_users(@coleccionista.users).collect {|p| [ "#{p.nombre} #{p.apellido}", p.id ] } %>
+      <%=hidden_field_tag :id, @coleccionista.id %>
+      <%=f.submit "Add user" %>
+      <% end  %>
+    </td>
+  </tr>
+</table>
+</p>
+<%= link_to t( 'Edit'), edit_coleccionista_path(@coleccionista) %> |
+<%= link_to t( 'Back'), coleccionistas_path %>

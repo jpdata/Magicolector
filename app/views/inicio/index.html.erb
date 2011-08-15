@@ -1,2 +1,7 @@
-<h1>Inicio#index</h1>
-<p>Find me in app/views/inicio/index.html.erb</p>
+<h1></h1>
+<p>
+  Grupo o coleccionista seleccionado: <%=@coleccionista.nombre unless @coleccionista.nil?%>
+  <br>
+  Coleccionista seleccionada: <%=@coleccionista.coleccion.find(session["coleccion_id"]).nombre unless @coleccionista.nil?%>
+  
+</p>

@@ -2,8 +2,12 @@ class CartasController < ApplicationController
   require 'net/http'
   
   def show
-    
-  end  
+    unless params[:id].nil? then
+      @id=param[:id]  
+    else
+      redirect_to :inicio
+    end  
+  end
   
   def buscar
     unless params[:buscar].nil? then
