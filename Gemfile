@@ -6,7 +6,7 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'mongrel'
+#gem 'mongrel' # comentar cuando se sube a heroku
 gem 'devise'
 gem 'rails-i18n'
 gem "jquery-rails"
