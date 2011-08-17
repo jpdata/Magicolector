@@ -2,17 +2,20 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
-<%
-if @resultado.length > 0 then
-%>
-
 <table width="700">
   <% 
   
   @resultado.each do |r|  %>
   <tr>
     <td width="50%"><%=link_to r[1],"http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=#{r[0]}"%></td>
-    <td>&nbsp;</td>
+    <td>
+      <%= form_tag "/cartas/add" do %>
+      <%=  label_tag :quantity %>
+      <%= hidden_field_tag :id,r[0] %>
+      <%= text_field_tag :cantidad,0,:size=>2,:maxlength=>2 %>
+      <%= submit_tag :add %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <td width="50%"><%=image_tag "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{r[0]}&type=card" %></td>
@@ -23,10 +26,4 @@ if @resultado.length > 0 then
   end
 %>
 </table>
-<% else  %>
-<%= form_tag "/cartas/buscar" do %>
-  <%=label_tag :search %>
-  <%= text_field_tag :search %>
-  <%= submit_tag "go" %>
-<% end %>
-<%end%>
+

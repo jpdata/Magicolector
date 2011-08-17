@@ -34,6 +34,8 @@ class ApplicationController < ActionController::Base
 #    ["Colecciones","/colecciones",[]]]
 #    session["items_menu"]=items_menu
       session["items_menu"][2][2]=colecciones
+      session["items_menu"] = session["items_menu"][0..2]
+      session["items_menu"] << ["Mazos","/mazos",Mazo.where(["coleccion_id=?",session[:coleccion_id]]).map{|m| [m.nombre,"/mazos/#{m.id}"]}]
     end
   end
   

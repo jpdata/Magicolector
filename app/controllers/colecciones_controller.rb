@@ -90,6 +90,6 @@ class ColeccionesController < ApplicationController
       update_menu_colecciones
     end
     
-    redirect_to "/inicio"
+    redirect_to "/cartas"
   end
 end

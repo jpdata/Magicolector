@@ -1,0 +1,28 @@
+<h1><%=t(:listing) %> <%=t(:mazos)%></h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th><%=t :name %></th>
+      <th><%=t :descripcion %></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody id="mazos">
+<%= render @mazos%>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to  t(:new_mazo), new_mazo_path %>
+
+<br><br>
+
+<div id="paginator">
+  <%= paginate @mazos, :remote => true %>
+</div>
+

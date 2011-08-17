@@ -1,0 +1,32 @@
+<%= form_for(@mazo) do |f| %>
+  <% if @mazo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mazo.errors.count, "error") %> prohibited this mazo from being saved:</h2>
+
+      <ul>
+      <% @mazo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t :name %><br />
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label t :description %><br />
+    <%= f.text_field :descripcion %>
+  </div>
+<%#
+  <div class="field">
+    <%= f.label :user % ><br />
+    <%= f.select :user_id, @coleccionista.users.collect {|p| [ "#{p.nombre}", p.id ] } % >
+  </div>
+%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

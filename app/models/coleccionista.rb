@@ -6,4 +6,7 @@ class Coleccionista < ActiveRecord::Base
   
   attr_accessor :tuid
 
+  def label
+    "#{self.nombre}"
+  end
 end

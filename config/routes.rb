@@ -1,5 +1,7 @@
 Magicolector::Application.routes.draw do
   
+  resources :mazos
+
   match "/coleccionistas/usuarios/:id" => "coleccionistas#usuarios"
   match "/coleccionistas/set/:id" => "coleccionistas#set"
   match "/coleccionistas/agregar" => "coleccionistas#agregar"
@@ -14,6 +16,8 @@ Magicolector::Application.routes.draw do
   
 
   match "cartas/buscar" => "cartas#buscar"
+  match "cartas/buscaradd" => "cartas#buscaradd"
+  match "cartas/add" => "cartas#add"
   resources :cartas
   
   match "/colecciones/set/:id" => "colecciones#set"

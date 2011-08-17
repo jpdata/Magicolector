@@ -1,7 +1,37 @@
 <h1></h1>
 <p>
+  <% if user_signed_in?  then %>
   Grupo o coleccionista seleccionado: <%=@coleccionista.nombre unless @coleccionista.nil?%>
   <br>
-  Coleccionista seleccionada: <%=@coleccionista.coleccion.find(session["coleccion_id"]).nombre unless @coleccionista.nil?%>
-  
+  Coleccionista seleccionada: <%=@coleccionista.coleccion.find(session["coleccion_id"]).nombre unless session[:coleccion_id].nil? %>
+  <% end %>
+</p>
+<p>
+<h1>Por Hacer:</h1>
+<ul>
+  <li>
+    Completar los archivos de localización en inglés y español para que no aparezca en spanglish
+  </li>
+  <li>
+    Colocar la opción de seleccionar el idioma
+  </li>
+  <li>
+    Terminar de implementar las validaciones en los datos de entrada.
+  </li>
+  <li>
+    Implementar un menu para las opciones como "mis mazos" o "mis colecciones"
+  </li>
+  <li>
+    Colocar una opción de menu para la búsqueda genérica de cartas (in appp) <%=link_to :buscar, "/buscar"%>
+  </li>
+  <li>
+    Selecionar una buena plantilla
+  </li>
+  <li>
+    Agregar cartas a los mazos
+  </li>
+  <li>
+    Mostrar cuantas cartas disponibles hay de una carta dada en una coleccion
+  </li>
+</ul>
 </p>

@@ -113,6 +113,7 @@ class ColeccionistasController < ApplicationController
     if session[:coleccionista_id].to_i > 0 then
       #tambien se debe llenar la lista de colecciones asociadas a este coleccionista
       update_menu_colecciones
+      session[:coleccion_id]=nil
     end
     
     redirect_to "/inicio"

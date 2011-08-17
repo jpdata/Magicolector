@@ -229,19 +229,27 @@
 #    forms:
 #      colections:
   edit_colection: "Editar colección"
-  listing_colection: "Mostrar colecciones"
+  listing_colections: "Mostrar colecciones"
   new_colection: "Colección Nueva"
-  name: "Nombre"
 #      colectionists:
   edit_colection: "Editar colectionista"
   listing_colection: "Listar colectionistas"
   new_colection: "Colectionista Nuevo"        
+ 
+  edit_mazo: "Editar Mazo"
+  listing_mazo: "Listar Mazos"
+  new_mazo: "Mazo Nuevo"
+
+  name: "Nombre"
+  
   back: "Volver"
   edit: "Editar"
+  show: "Mostrar"
   users: "Usuarios"
   user: "Usuario"
   coleccionistas: "Coleccionistas"
   colecciones: "Colecciones"
   coleccionista: "Coleccionista"
   coleccion: "Colección"
+  description: "Descripción"
   

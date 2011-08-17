@@ -1,0 +1,26 @@
+<h1><%=t "Listing cards" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%=t :name %></th>
+      <th><%=t :quantity %></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody id="cartas">
+<%= render @cartas %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Add Card', new_carta_path %>
+
+<br><br>
+
+<div id="paginator">
+  <%= paginate @cartas, :remote => true %>
+</div>

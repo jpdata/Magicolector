@@ -1,0 +1,7 @@
+<tr>
+  <td><%= mazo.nombre %></td>
+  <td><%= mazo.descripcion[0..40] %></td>
+  <td><%= link_to t(:show), mazo %></td>
+  <td><%= link_to t(:edit), edit_mazo_path(mazo) %></td>
+  <td><%= link_to t(:destroy), mazo, :confirm => "#{t(:are_you_sure?)}", :method => :delete %></td>
+</tr>

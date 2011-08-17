@@ -10,19 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809193513) do
+ActiveRecord::Schema.define(:version => 20110817000443) do
 
   create_table "cartas", :force => true do |t|
     t.integer  "wocid"
     t.integer  "cantidad"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coleccion_id"
   end
 
   create_table "colecciones", :force => true do |t|
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coleccionista_id"
   end
 
   create_table "coleccionistas", :force => true do |t|
@@ -30,6 +32,30 @@ ActiveRecord::Schema.define(:version => 20110809193513) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "coleccionistas_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "coleccionista_id"
+  end
+
+  create_table "mazos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ubicaciones", :force => true do |t|
+    t.integer  "cantidad"
+    t.string   "observaciones"
+    t.integer  "carta_id"
+    t.integer  "mazo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ubicaciones", ["carta_id", "mazo_id"], :name => "index_ubicaciones_on_carta_id_and_mazo_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
@@ -55,10 +81,5 @@ ActiveRecord::Schema.define(:version => 20110809193513) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "usuarios_coleccionistas", :id => false, :force => true do |t|
-    t.integer "usuario_id"
-    t.integer "coleccionista_id"
-  end
 
 end

@@ -1,6 +1,10 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<p>
+  <b><%=t :name %>:</b>
+  <%= find_card_name_by_id @carta.wocid %></br>
+  <b><%=t :quantity %>:</b>
+  <%= @carta.cantidad %></br>
+  <%=image_tag "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{@carta.wocid}&type=card" %>
+  </br>
+</p>
 
-<%= "show.html" %>
+<%= link_to t ('Back'), cartas_path %>

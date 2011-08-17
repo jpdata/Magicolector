@@ -225,19 +225,27 @@
 #    forms:
 #      colections:
   edit_colection: "Editing colection"
-  listing_colection: "Listing colections"
+  listing_colections: "Listing colections"
   new_colection: "New Colection"
+  
+  edit_colectionist: "Editing colection"
+  listing_colectionists: "Listing colectionists"
+  new_colectionist: "New Colectionist"
+  
+  edit_mazo: "Editing Deck"
+  listing_mazo: "Listing Deck"
+  new_mazo: "New Deck"
+
   name: "Name"
-#     colectionists:
-  edit_colectionist: "Editing colectionist"
-  listing_colectionist: "Listing colectionists"
-  new_colectionist: "New Colectionist"        
+        
   back: "Back"
   edit: "Edit"
+  show: "Show"  
   users: "Users"
   coleccionistas: "Colectionists"
   colecciones: "Colections"
   user: "User"
   coleccionista: "Colectionist"
   coleccion: "Colection"
+  description: "Description"
   

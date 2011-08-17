@@ -34,10 +34,10 @@ $(document).ready(function(){
 <body>
 <div id="user_nav">
   <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
+    <%= t :signed_in_as %> <%= current_user.email %>. <%= t :not_you? %>
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <%= link_to t(:sign_up), new_user_registration_path %> <%=  t :or %> <%= link_to t(:sign_in), new_user_session_path %>
   <% end %>
     </br>
 </div>
@@ -49,19 +49,14 @@ $(document).ready(function(){
     ["Colecciones","/colecciones",[]]]
   session["items_menu"]=items_menu if session["items_menu"].nil?    
 %>
-  <div id="menu">
-<%=raw menu(session["items_menu"]) -%>
+<div id="menu">
+<%=raw menu(session["items_menu"]) %>
   </div>
-  </br></br>
-  <div>
-    <section id="flash">
-        <% flash.each do |key, value| %>
-            <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-    </section> 
   </br>
-  </div>
+    <% flash.each do |key, value| %>
+        <div id="<%= key %>"><p><%= value %></p></div>
+    <% end %>
+    <br>
 <%= yield %>
-
 </body>
 </html>

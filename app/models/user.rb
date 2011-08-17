@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_and_belongs_to_many :coleccionistas
+  has_many :mazos
   
   scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
   scope :without_users, lambda{|users| users ? {:conditions => ["id not in (?)", users.find(:all,:select=>'id').map {|x| x.id}]} : {} }
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
     else 
       super # Use whatever other message 
     end 
+  end
+  
+  def label
+    "#{self.nombre} #{self.apellido}"
   end
   
 end

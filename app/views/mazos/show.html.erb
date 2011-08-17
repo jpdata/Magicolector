@@ -1,0 +1,15 @@
+<p>
+  <b><%=t :name %>:</b>
+  <%= @mazo.nombre %></br>
+  <b><%=t :descripcion %>:</b>
+  <%= @mazo.descripcion %></br>
+  <b><%=t :user %>:</b>
+  <%= @mazo.user.label %>
+  </br>
+  Lista de Cartas
+  _______________
+  
+</p>
+
+<%= link_to t(:edit), edit_mazo_path(@mazo) %> |
+<%= link_to t(:back), mazos_path %>
